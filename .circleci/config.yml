@@ -2,16 +2,14 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/php:8.2.0-node
+      - image: cimg/php:8.2.0-node-browsers
       - image: circleci/mysql:8.0.17
         command: mysqld --default-authentication-plugin=mysql_native_password
 
     environment:
-      - APP_DEBUG: true
-      - APP_ENV: testing
-      - APP_KEY: base64:micbAU8T7PZ+IbbZOMW1u6u9lefdpGWMGGRbDHdxdz0=
-      - DB_CONNECTION: rese_test
-      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+      APP_ENV: testing
+      APP_KEY: base64:micbAU8T7PZ+IbbZOMW1u6u9lefdpGWMGGRbDHdxdz0=
+      DB_CONNECTION: rese_test
       
     working_directory: ~/repo
       
@@ -20,7 +18,7 @@ jobs:
 
       # Install PHP Extension
       - run: sudo docker-php-ext-install pdo_mysql
-      
+
       - run:
           name: Install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
