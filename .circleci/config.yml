@@ -2,14 +2,20 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/php:8.2.0-node-browsers
-      - image: circleci/mysql:8.0.17
-        command: mysqld --default-authentication-plugin=mysql_native_password
-
-    environment:
-      -APP_ENV: testing
-      -APP_KEY: base64:6ctYtAPElOYuQ38tQaAINs78YRKEoL4gIIqU8QvlJxw=
-      DB_CONNECTION: rese_test
+      - image: cimg/php:8.0.13
+        environment:
+          APP_ENV: testing
+          DB_CONNECTION: rese_test
+          DB_HOST: 127.0.0.1
+          DB_DATABASE: rese_test
+          DB_USERNAME: 'root'
+          DB_PASSWORD: ''
+      - image: circleci/mysql:8
+        environment:
+          MYSQL_DATABASE: testing
+          MYSQL_ROOT_HOST: '%'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          TZ: Asia/Tokyo
       
     working_directory: ~/repo
       
