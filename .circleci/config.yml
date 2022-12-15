@@ -3,10 +3,46 @@ jobs:
   build:
     docker:
       - image: cimg/php:8.2.0-node
+        auth:
+          username: root
+          password: 
+      - image: cimg/mysql:8.0
+        auth:
+          username: root
+          password:  
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: rese_test
+          MYSQL_USER: root
+          MYSQL_PASSWORD: 
     steps:
       - checkout
       - run: sudo composer self-update --1
       - run: composer install -n --prefer-dist
       - run:
+          name: sleep
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+          name: import
+          command: |
+            sudo apt-get install default-mysql-client
+            mysql -h 127.0.0.1 -u user -ppassw0rd test_db < sql-data/dummy.sql
+            mysql -h 127.0.0.1 -u user -ppassw0rd --execute="SELECT * FROM test_db.Persons"
+            
+      - run:
           name: php test
           command: vendor/bin/phpunit
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+
