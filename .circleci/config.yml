@@ -60,18 +60,3 @@ commands:
           name: run phpunit
           working_directory: backend
           command: php artisan test
-
-jobs:
-  run_test:
-    executor: deploy_container
-    steps:
-      - checkout
-      - run_test
-      - notify_slack_fail
-      - notify_slack_pass
-
-workflows:
-  push-branch-workflow:
-    jobs:
-      - run_test:
-          name: "run_test"
