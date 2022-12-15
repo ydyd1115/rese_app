@@ -9,7 +9,7 @@ jobs:
     environment:
       - APP_DEBUG: true
       - APP_ENV: testing
-      - APP_KEY: base64:6ctYtAPElOYuQ38tQaAINs78YRKEoL4gIIqU8QvlJxw=
+      - APP_KEY: base64:micbAU8T7PZ+IbbZOMW1u6u9lefdpGWMGGRbDHdxdz0=
       - DB_CONNECTION: rese_test
       - MYSQL_ALLOW_EMPTY_PASSWORD: true
       
@@ -29,7 +29,7 @@ jobs:
           - v1-dependencies-
 
       - run: composer install -n --prefer-dist
-
+      - run: yarn install
       - save_cache:
           paths:
             - ./vendor
