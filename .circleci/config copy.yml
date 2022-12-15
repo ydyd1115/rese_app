@@ -9,7 +9,7 @@ jobs:
     environment:
       - APP_DEBUG: true
       - APP_ENV: testing
-      - APP_KEY: base64:6ctYtAPElOYuQ38tQaAINs78YRKEoL4gIIqU8QvlJxw=
+      - APP_KEY: base64:micbAU8T7PZ+IbbZOMW1u6u9lefdpGWMGGRbDHdxdz0=
       - DB_CONNECTION: rese_test
 
     working_directory: ~/repo
@@ -19,7 +19,7 @@ jobs:
 
 
 
-      
+
       - run:
           name: install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz

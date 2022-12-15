@@ -11,22 +11,21 @@ jobs:
       - APP_ENV: testing
       - APP_KEY: base64:6ctYtAPElOYuQ38tQaAINs78YRKEoL4gIIqU8QvlJxw=
       - DB_CONNECTION: rese_test
-
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+      
     working_directory: ~/repo
       
     steps:
       - checkout
+
+      # Install PHP Extension
       - run: sudo docker-php-ext-install pdo_mysql
-      - run: sudo composer self-update --1
-      - run:
-          name: install dockerize
-          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-          environment:
-            DOCKERIZE_VERSION: v0.6.1
-      
+
+      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
+          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run: composer install -n --prefer-dist
@@ -36,14 +35,9 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
 
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp\://localhost:3306 -timeout 1m
-
       # run seeding
       - run: php artisan migrate
       - run: php artisan db:seed
 
-      - run:
-          name: php test
-          command: ./vendor/bin/phpunit
+      # run tests!
+      - run: php ./vendor/bin/phpunit
