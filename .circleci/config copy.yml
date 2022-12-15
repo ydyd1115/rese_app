@@ -16,25 +16,34 @@ jobs:
       
     steps:
       - checkout
-      - run: sudo docker-php-ext-install pdo_mysql
-      - run: sudo composer self-update --1
+
+
+
+      
       - run:
           name: install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
           environment:
             DOCKERIZE_VERSION: v0.6.1
-      
+
+      - run:
+          name: Install PHP Extensions
+          command: sudo docker-php-ext-install pdo_mysql
+
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "laravel/composer.json" }}
+            - v1-dependencies-
 
-      - run: composer install -n --prefer-dist
+      - run:
+          name: composer install
+          working_directory: laravel
+          command: composer install -n --prefer-dist
 
       - save_cache:
           paths:
             - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
+          key: v1-dependencies-{{ checksum "laravel/composer.json" }}
 
       - run:
           name: Wait for db
