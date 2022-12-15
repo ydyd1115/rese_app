@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/php:8.2.0-node-browser
+      - image: cimg/php:8.2.0-browser
       - image: circleci/mysql:8.0.17
         command: mysqld --default-authentication-plugin=mysql_native_password
 
