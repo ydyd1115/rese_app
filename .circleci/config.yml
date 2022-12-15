@@ -1,7 +1,6 @@
 version: 2.1
-
-executors:
-  deploy_container:
+jobs:
+  build:
     docker:
       - image: cimg/php:8.0.13
         environment:
@@ -17,46 +16,42 @@ executors:
           MYSQL_ROOT_HOST: '%'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           TZ: Asia/Tokyo
-
-commands:
-  run_test:
+      
+    working_directory: ~/repo
+      
     steps:
       - checkout
+
+      # Install PHP Extension
+      - run: sudo docker-php-ext-install pdo_mysql
+
+      - run:
+          name: Install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.6.1
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 3m # Point 2      
+
+      # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "backend/composer.json" }}
-            - v1-dependencies-
-      - run:
-          name: composer install
-          working_directory: backend
-          command: composer install
-      - run:
-          name: laravel setting
-          working_directory: backend 
-          environment:
-            ENV: circleci
-          command: sh ../infra/docker/php/laravel_setting.sh
+          - v1-dependencies-{{ checksum "composer.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: composer install -n --prefer-dist
+      - run: yarn install
       - save_cache:
           paths:
-            - backend/vendor
-          key: v1-dependencies-{{ checksum "backend/composer.json" }}
-      - run: 
-          name: run phpstan
-          working_directory: backend
-          command: ./vendor/bin/phpstan --memory-limit=1G analyse
-      - run: 
-          name: run cp env file
-          working_directory: backend
-          command: cp .env.example .env  
-      - run: 
-          name: run key generate
-          working_directory: backend
-          command: php artisan key:generate
-      - run: 
-          name: run migrate
-          working_directory: backend
-          command: php artisan migrate:fresh --seed
-      - run: 
-          name: run phpunit
-          working_directory: backend
-          command: php artisan test
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.json" }}
+
+      # run seeding
+      - run: php artisan migrate
+      - run: php artisan db:seed
+
+      # run tests!
+      - run: php ./vendor/bin/phpunit
