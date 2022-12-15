@@ -1,0 +1,199 @@
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro",
+  "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
+  line-height: 1.6;  
+  background-color: #fcfcfc;
+  margin:auto auto;
+}  
+
+h2{
+  color: #44c;
+  font-size:18px;
+}
+
+/* header */
+
+header{
+  display:flex;
+  justify-content: space-between;
+  width:95%;
+  height:40px;
+  margin:24px auto 0;
+
+}  
+
+h1{
+  font-size:32px;
+  color:#44c;
+}  
+
+.auth_info{
+  font-weight:600;
+  text-align: end;
+  color:#555;
+  margin-right: 5%;
+}  
+
+.logout_btn{
+  text-decoration: none;
+}  
+
+.logout_btn :visited {
+  color: #555;
+}  
+
+/* header_end */
+
+/* main */
+.error_message {
+  color: #f00;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+section{
+  width:90%;
+  margin:24px auto ;
+}  
+
+/* manager_register */
+
+.admin_btn{
+  font-size: 14px;
+  width:60px;
+  color: white;
+  background-color: #00f;
+  border: none;
+  border-radius: 4px;
+  padding:4px 16px;
+  margin:16px 0 0 90%;
+}
+
+.manager_register__form{
+  width:95%;
+  margin:0 auto;
+  padding-bottom:32px;
+  border:solid 1px #cacaca;
+  border-radius:8px;
+}
+
+.manager_register__table{
+  margin:0 auto;
+  width:85%;
+}
+
+.manager_register__table input{
+  border:none;
+  outline:none;
+  width:90%
+}
+
+.manager_register__table tr{
+  height:32px;
+  border-bottom: solid 1px #cacaca;
+}
+
+.manager_register__table th{
+  font-size: 12px;;
+  width:10%;
+  min-width: 80px;
+  vertical-align: bottom;
+}
+
+.manager_register__table td{
+  width:45%;
+  vertical-align: bottom;
+}
+
+.manager_register__table 
+.manager_register__table__name {
+  width:20%;
+}
+
+/* manager_register_end */
+
+/* manager_list */
+
+.manager_edit{
+  width:98%;
+  margin:0 auto;
+
+}
+
+.manager_edit__table{
+  width:100%;
+  margin:0 auto;
+}
+
+.manager_edit__table select {
+  border: none;
+  outline: none;
+  background-color:#f0f0f0;
+  padding-top:4px;
+  font-size:16px;
+  border-radius: 2px;
+  margin-bottom:2px
+}
+
+.manager_edit__table input {
+  border: none;
+  outline: none;
+  width: 90%;
+  font-size:16px;
+}
+
+.manager_edit__table tr{
+  height:36px;
+  border-bottom:solid 1px #cacaca;
+}
+
+.manager_edit__table th{
+  text-align:left;
+  padding-left:2%;
+  vertical-align: bottom;
+  font-size:14px;
+}
+
+.manager_edit__table td{
+  text-align:left;
+  padding-left:8px;
+  vertical-align: bottom;
+}
+
+.manager_edit__table 
+.manager_edit__table__head {
+  border-bottom:solid 2px #a8a8a8;
+}
+
+.manager_edit__table__shop{
+  width:15%;
+}
+
+.manager_edit__table__family_name{
+  width:10%;
+}
+
+.manager_edit__table__first_name{
+  width:10%;
+}
+
+.manager_edit__table__email{
+  width:40%;
+}
+
+.edit_btn {
+  font-size: 14px;
+  width: 60px;
+  color: white;
+  background-color: #00f;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 16px;
+  margin-bottom:1px;
+}
+
+.error_message ul{
+  margin-left: 5%;
+}
+/* manager_list_end */
+/* main_end */

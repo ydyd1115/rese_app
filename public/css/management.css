@@ -1,0 +1,558 @@
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro",
+    "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
+  line-height: 1.6;
+  background-color: #fcfcfc;
+  margin: auto auto;
+}
+
+h2 {
+  color: #44c;
+  font-size: 18px;
+}
+
+/* header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  height: 40px;
+  margin: 24px auto 0;
+
+}
+
+h1 {
+  font-size: 32px;
+  color: #44c;
+}
+
+.auth_info {
+  font-weight: 600;
+  text-align: end;
+  color: #555;
+  margin-right: 5%;
+}
+
+.logout_btn {
+  text-decoration: none;
+}
+
+.logout_btn :visited {
+  color: #555;
+}
+
+/* header_end */
+
+/* main */
+
+section {
+  width: 90%;
+  margin: 24px auto;
+
+}
+
+/* shop_info */
+.shop_info__head{
+  width:95%;
+  margin:0 auto;
+  display:flex;
+  justify-content: space-between;
+}
+
+.shop_info__content{
+  display: flex;
+  justify-content: space-between;
+  margin:0 auto;
+  width: 90%;
+  border: solid 1px #cacaca;
+  border-radius: 8px;
+}
+
+.shop_info__content__texts{
+  width:40%;
+  margin:24px auto;
+}
+
+
+.shop_info__content__tags{
+  display:flex;
+  justify-content: space-between;
+  border-bottom:solid 1px #e0e0e0;
+  margin:16px;
+}
+
+.shop_info__content__comment{
+  margin:16px 16px;
+  text-decoration: underline #e0e0e0;
+}
+
+.shop_info__content__edit{
+  text-align: center;
+}
+
+.modal_open_btn{
+  font-size: 14px;
+  width: 60%;
+  color: white;
+  background-color: #00f;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 16px auto;
+}
+
+.shop_info__image_up{
+  text-align: center;
+}
+
+.shop_info__image_up h3{
+  color:#555;
+}
+
+.shop_info__image_up form{
+  border:solid 1px #a8a8a8;
+  border-radius:4px;
+}
+
+.shop_info__image_up button{
+  margin:8px;
+}
+
+.shop_info__content__img{
+  width:50%;
+  object-fit: contain;
+  border-radius:4px;
+  margin:4px auto;
+}
+
+/* shop_editmodal */
+.shop_edit__modal {
+  display: none;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shop_edit__modal__inner {
+  margin: 5vh auto;
+  min-height: 480px;
+  width: 75%;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.shop_edit__modal h2 {
+  padding-left: 5%;
+  margin:24px 0;
+}
+
+.close{
+
+  text-align: end;
+}
+
+.closeBtn {
+  margin: 4px 4px 0 0;
+  padding:4px 8px;
+  color: white;
+  background-color: #44c;
+  border: none;
+  border-radius: 2px;
+}
+
+.shop_edit__modal__content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.shop_edit__modal__table {
+  width: 80%;
+  margin:0 auto;
+}
+
+.shop_edit__modal__content form {
+  width: 100%;
+  height: 360px;
+  font-size:16px;
+}
+
+.shop_edit__modal__content tr {
+  height: 40px;
+  border-bottom:solid 1px #cacaca;
+}
+
+.shop_edit__modal__content th {
+  width: 20%;
+  min-width: 80px;
+  vertical-align: bottom;
+}
+
+.shop_edit__modal__content td {
+  width: 80%;
+  vertical-align: bottom;
+}
+
+.shop_edit__comment th{
+  padding-top:8px;
+  vertical-align: top;
+}
+
+.shop_edit__comment td{
+  padding-top:8px;
+  vertical-align: top;
+}
+
+.shop_edit__modal__content input,
+.shop_edit__modal__content textarea {
+  border: none;
+  outline: none;
+}
+
+.postBtn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.postBtn button {
+  border-radius: 4px;
+  color: white;
+  background-color: #00f;
+  padding: 4px 16px;
+  border:none;
+}
+
+#comment {
+  resize: none;
+}
+
+#image_URL{
+  width:100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#image_URL:hover{
+  white-space: normal;
+  overflow: wrap;
+  word-break: break-all;
+}
+/* shop_edit_modal-end */
+
+/* shop_info_end */
+
+/* reserve_list */
+/* reserve_edit */
+.reserve_edit__form {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 32px;
+  border: solid 1px #cacaca;
+  border-radius: 8px;
+}
+
+.reserve_edit__table {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.reserve_edit__table input {
+  outline: none;
+}
+
+.reserve_edit__table tr {
+  height: 32px;
+  border-bottom: solid 1px #cacaca;
+}
+
+.reserve_edit__table th {
+  font-size: 16px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.reserve_edit__table td {
+  vertical-align: bottom;
+}
+
+.reserve_edit {
+  width: 98%;
+  margin: 0 auto;
+  
+}
+
+.reserve_edit__table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.reserve_edit__table tr {
+  height: 36px;
+  border-bottom: solid 1px #cacaca;
+}
+
+.reserve_edit__table th {
+  padding-left: 1%;
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 14px;
+  border-bottom: solid 2px #a8a8a8;
+}
+
+.reserve_edit__table td {
+  padding-left: 8px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.reserve_edit__table__date input{
+  border: none;
+  outline: none;
+  text-align: center;
+  padding-left: 8px;
+  vertical-align: bottom;
+  font-size: 16px;
+  width: 60%;
+}
+
+.reserve_edit__table__time input{
+  border: none;
+  outline: none;
+  text-align: center;
+  padding-left: 8px;
+  vertical-align: bottom;
+  font-size: 16px;
+  width: 60%;
+  min-width: 100px;
+}
+
+.reserve_edit__table__number input{
+  border: none;
+  outline: none;
+  text-align: center;
+  padding-left: 8px;
+  vertical-align: bottom;
+  font-size: 16px;
+  width: 100%;
+  min-width: 50px;
+}
+
+.reserve_edit__table__date {
+  width: 10%;
+  min-width: 180px;
+}
+
+.reserve_edit__table__time {
+  width: 3%;
+  min-width: 40px;
+}
+
+.reserve_edit__table__name {
+  min-width: 120px;
+}
+
+.reserve_edit__table__number {
+  width: 5%;
+  min-width: 50px;
+}
+
+.reserve_edit__table__update ,
+.reserve_edit__table__delete,
+.reserve_edit__table__mail {
+  width: 5%;
+}
+
+
+.edit_btn {
+  font-size: 14px;
+  width: 60px;
+  color: white;
+  background-color: #00f;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 16px;
+  margin-bottom: 1px;
+}
+
+.error_message {
+  color:#f00;
+  font-size: 14px;
+  
+  margin-left:10%;
+}
+
+.error_message ul {
+  margin-left: 5%;
+}
+
+/* reserve_edit_end */
+/* send___modal */
+.send_mail__modal {
+  display: none;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.send_mail__modal__inner {
+  margin: 5vh auto;
+  min-height: 480px;
+  width: 75%;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.send_mail__modal__inner h2 {
+  padding-left: 5%;
+  margin: 24px 0;
+}
+
+.send_mail__modal__content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.send_mail__modal__table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.send_mail__modal__content form {
+  width: 100%;
+  height: 360px;
+  font-size: 16px;
+}
+
+.send_mail__modal__content tr {
+  height: 40px;
+  border-bottom: solid 1px #cacaca;
+}
+
+.send_mail__modal__content th {
+  width: 20%;
+  min-width: 80px;
+  vertical-align: bottom;
+}
+
+.send_mail__modal__content td {
+  width: 80%;
+  vertical-align: bottom;
+}
+
+.send_mail__comment th {
+  padding-top: 8px;
+  vertical-align: top;
+}
+
+.send_mail_comment td {
+  padding-top: 8px;
+  vertical-align: top;
+}
+
+.send_mail__modal__content input,
+.send_mail__modal__content textarea {
+  border: none;
+  outline: none;
+}
+
+#msg {
+  resize: none;
+  white-space: pre-wrap;
+}
+
+/* send_mail__modal-end */
+
+@media screen and (max-width: 768px){
+  .shop_info__content{
+    display:block;
+    width:100%;
+  }
+
+  .shop_info__content_texts{
+    display:block;
+    width:100%;
+  }
+
+  .shop_info__content__texts {
+    width: 95%;
+  }
+
+  .shop_info__content__img {
+    width: 90%;
+    margin:0 5%;
+  }
+
+
+
+  .reserve_edit__table {
+    width:95%;
+    border-collapse: collapse;;
+  }
+
+  .reserve_edit__table__date {
+    width: 10%;
+    min-width: 140px;
+  }
+  
+  .reserve_edit__table__date input {
+    border: none;
+    outline: none;
+    width: 80%;
+    font-size: 14px;
+  }
+
+
+  
+  .reserve_edit__table__time input {
+    border: none;
+    outline: none;
+    width: 30%;
+    font-size: 14px;
+  }
+  .reserve_edit__table__name {
+    font-size: 14px;
+  }
+  
+  .reserve_edit__table__number {
+    width: 3%;
+  }
+  
+  .reserve_edit__table__update,
+  .reserve_edit__table__delete,
+  .reserve_edit__table__mail  {
+    width: 3%;
+  }
+  
+  
+  
+  .reserve_edit__table__number input {
+    border: none;
+    outline: none;
+    width: 0%;
+    font-size: 14px;
+  }
+
+  .reserve_edit__table th {
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 14px;
+    border-bottom: solid 2px #a8a8a8;
+  }
+
+  .edit_btn {
+    font-size:10px;
+    width: 40px;
+    margin:0 2px;
+  }
+  .reserve_edit__table td {
+    padding-left: 0px;
+  }
+}
+/* reserve_list_end */

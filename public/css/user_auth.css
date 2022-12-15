@@ -1,0 +1,95 @@
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro",
+    "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
+  line-height: 1.6;
+  background-color: #fcfcfc;
+}
+
+.container{
+  width:40%;
+  min-width:480px;
+  margin:20vh auto;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow:1px 1px 6px 1px #a0a0a0;
+  padding-bottom:40px;
+}
+
+.container__head{
+  border-radius: 8px 8px 0 0;
+  font-size: 24px;
+  height:40px;
+  color:white;
+  background-color: #44c;
+  padding-top:16px;
+}
+
+.container__body{
+  margin:auto auto;
+  width:80%;
+  margin-top:5%;
+}
+
+.container__body table{
+  vertical-align: bottom;
+}
+
+.container__body tr{
+  height:60px;
+  width:100%;
+  border-bottom:solid 1px #a0a0a0;
+}
+.container__body input{
+  border:none;
+  outline: none;
+}
+
+.container__body th{
+  vertical-align: bottom;
+}
+
+.container__body td{
+  vertical-align: bottom;
+  text-align: left;
+  padding-left:8px;
+  width:100%;
+}
+
+.container__body td input{
+  width:90%;
+}
+
+.container__body table .error-message {
+  color: red;
+  border:none;
+  height:40px
+}
+
+.submit{
+  margin-top:8px;
+  height:10vh;
+  vertical-align: center;
+  text-align:right;
+}
+
+.underline{
+  margin-right:10px;
+  text-decoration: none;
+}
+
+.submit__btn{
+  color: white;
+  background-color: #44c;
+  margin-top:16px;
+  width:20%;
+  height:36px;
+  font-weight: 600;
+  border:none;
+  border-radius: 5px;
+  box-shadow:1px 1px 2px 1px #a0a0a0;
+}
+.submit__btn:hover{
+  color: white;
+  background-color: #88f;
+  margin-top:16px;
+}

@@ -1,0 +1,32 @@
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro",
+    "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
+  line-height: 1.6;
+  background-color: #fcfcfc;
+}
+
+.container {
+  width: 40%;
+  min-width: 480px;
+  margin: 20vh auto;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px 1px #a0a0a0;
+  padding-bottom: 40px;
+}
+
+.container__head {
+  border-radius: 8px 8px 0 0;
+  font-size: 24px;
+  height: 40px;
+  color: white;
+  background-color: #44c;
+  padding-top: 16px;
+}
+
+.container__body {
+  margin: auto auto;
+  width: 80%;
+  margin-top: 5%;
+}
+

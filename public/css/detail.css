@@ -1,0 +1,362 @@
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro",
+    "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
+  line-height: 1.6;
+  background-color: #fcfcfc;
+    min-width: 650px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+  padding-top: 8px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.shop_detail{
+  display:flex;
+  justify-content: space-between;
+  margin:0 auto;
+  width: 90%;
+}
+
+.shop_info,
+.shop_reserve{
+  width:45%;
+}
+
+.logo {
+  color: #44c;
+  margin: 0px 0 0px 0;
+  font-size: 32px;
+}
+
+.logo a{
+  text-decoration: none;
+  margin-left: 5%;
+}
+
+.logo a:visited {
+  color: #44c;
+}
+
+
+/* shop_info */
+.shop_info__head{
+  display:flex;
+  align-items:center ;
+}
+
+.shop_info__head h2{
+  margin-left:16px;
+}
+
+.back_btn{
+  font-weight: 800;
+  height: 20px;
+  text-align: center;
+  background-color: white;
+  border:none;
+  border-radius: 2px;
+  box-shadow: 1px 1px 6px 1px #a0a0a0;}
+
+
+.shop_info__main img{
+  width:100%;
+  object-fit: cover;
+}
+/* shop_info_end */
+
+/* shop_reserve */
+.shop_reserve{
+  color:white;
+  background-color:#66c ;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content:inherit;
+}
+.shop_reserve h2{
+  margin:8px 0 16px 5%;
+  
+}
+
+.shop_reserve__content{
+  width:90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin:0 auto;
+}
+
+.shop_reserve__content input{
+  font-size:1.2vmax;
+}
+
+.shop_reserve__date{
+  width:40%;
+  margin-bottom:16px;
+  padding-left: 8px;
+  border:none;
+  border-radius:4px;
+  outline: none;
+}
+
+.shop_reserve__time{
+  width:80%;
+  padding-left: 8px;
+  margin-bottom:16px;
+  border:none;
+  border-radius:4px;
+  outline: none;
+}
+
+.shop_reserve__number{
+  width:80%;
+  padding-left: 8px;
+  margin-bottom:16px;
+  border:none;
+  border-radius:4px;
+  outline: none;
+}
+
+.error_message {
+  color: #ca0;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.shop_reserve__confirm{
+  background-color: #88c;
+  border-radius: 8px;
+  padding:16px 8px;
+  margin-bottom:16px;
+}
+
+.shop_reserve__confirm th{
+  font-size:1.2vmax;
+}
+
+.shop_reserve__confirm td{
+  font-size:1.2vmax;
+  padding-left:16px;
+}
+
+.shop_reserve__btn{
+  text-align: center;
+  text-decoration: none;
+  width:100%;
+  margin-top: auto;
+  padding:16px 0;
+  color:white;
+  background-color: #44c;
+  height:40px;
+  border: none;
+  border-radius:0 0 10px 10px;
+  font-size:20px;
+}
+/* shop_reserve_end */
+
+/* shop_review */
+.shop_review{
+  width:90%;
+  margin:40px auto 0;
+  border:solid 1px #a0a0a0;
+  border-radius: 8px;
+
+}
+
+.shop_review__head{
+  display:flex;
+  justify-content:space-between;
+  width:95%;
+  margin:0 auto;
+}
+
+.shop_review__post{
+  color: white;
+  background-color: #44c;
+  border:none;
+  border-radius: 4px;
+  text-decoration: none;
+  padding:8px 8px;
+  margin-top: 8px;
+}
+
+.shop_review__list{
+  width:100%;
+}
+
+.shop_review__list table{
+  margin:0 auto 16px;
+  width:95%;
+  border-collapse:collapse;
+}
+
+.shop_review__t_head{
+  text-align: left;
+  width:100%;
+}
+
+
+.shop_review__date{
+  width:15%;
+  min-width:100px;
+}
+
+.shop_review__nickname{
+  width:15%;
+  min-width:110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop_review__nickname:hover {
+  white-space: normal;
+  overflow: wrap;
+  word-break: break-all;
+}
+
+.shop_review__grade{
+  width:5%;
+  min-width:60px;
+}
+
+.shop_review__comment{
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop_review__comment:hover {
+  white-space: normal;
+  overflow:wrap;
+  word-break: break-all;
+}
+
+.shop_review__t_body{
+  border-bottom:solid 1px #a0a0a0;
+}
+/* shop_reviewmodal */
+.shop_review__modal {
+  display:none;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shop_review__modal__inner {
+  margin: 5vh auto;
+  min-height:480px;
+  width: 60%;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.shop_review__modal h2{
+  padding-left:5%;
+}
+
+.closeBtn {
+  margin-top: 0px;
+  color: white;
+  background-color: #44c;
+  border:none;
+  border-radius: 2px;
+}
+
+.shop_review__modal__content {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.shop_review__modal__content form{
+  width:80%;
+  height:360px;
+}
+
+.shop_review__modal__content tr{
+  height:32px;
+  
+}
+
+.shop_review__modal__content th{
+  width:25%;
+  min-width: 100px;
+}
+
+.shop_review__modal__content td{
+  width:50%;
+}
+
+.shop_review__modal__content 
+input,
+.shop_review__modal__content textarea{
+  border:solid 1px #ccc;
+  outline: none;
+}
+
+.postBtn{
+  margin-top:20px;
+  text-align: center;
+}
+
+.postBtn button{
+  border:solid 1px #555;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color:white;
+  background-color: #66c;
+  padding:4px 16px;
+}
+
+#comment{
+  resize:none;
+}
+
+/* shop_reviewmodal-end */
+/* shop_review_end */
+
+
+@media screen and (max-width: 768px) {
+  .shop_detail {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .shop_info,
+  .shop_reserve {
+    width: 100%;
+    margin-top:24px;
+  }
+
+  .shop_review__modal__inner{
+    width:100%;
+  }
+
+
+  .shop_reserve__content input {
+    font-size: 20px;
+  }
+
+  .shop_reserve__confirm th {
+    font-size: 20px;
+  }
+
+  .shop_reserve__confirm td {
+    font-size: 20px;
+    padding-left: 16px;
+  }
+}

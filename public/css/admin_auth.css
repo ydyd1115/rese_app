@@ -1,0 +1,116 @@
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro",
+    "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
+  line-height: 1.6;
+  background-color: #fcfcfc;
+}
+
+.container {
+  width: 40%;
+  min-width: 480px;
+  margin: 20vh auto;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px 1px #a0a0a0;
+  padding-bottom: 40px;
+}
+
+.container__head {
+  border-radius: 8px 8px 0 0;
+  font-size: 24px;
+  height: 40px;
+  color: white;
+  background-color: #44c;
+  padding-top: 16px;
+}
+
+.container__body {
+    margin: auto auto;
+    width: 80%;
+    margin-top: 5%;
+  }
+  
+.admin_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .roles {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .role_btn {
+    margin: 16px auto;
+  }
+
+  table {
+    width: 90%;
+    margin: auto auto;
+  }
+
+  table tr {
+    height: 40px;
+    width: 100%;
+    border-bottom: solid 1px #cacaca;
+  }
+
+
+  table th {
+    font-size: 14px;
+    width: 30%;
+    vertical-align: bottom;
+  }
+
+  table td {
+    width: 65%;
+    vertical-align: bottom;
+  }
+
+  table input {
+    border: none;
+    outline: none;
+  }
+
+  .container__body table .error-message {
+    color: red;
+    border: none;
+    height: 40px
+  }
+
+  .buttons {
+    margin-top: 16px;
+  }
+
+  .login_btn {
+    display: none;
+    font-size: 40px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: white;
+    background-color: #00f;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+  }
+
+  .login_btn.show {
+    display: block;
+  }
+
+  .submit_btn {
+    font-size: 12px;
+    color: white;
+    background-color: #00f;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-top:16px;
+  }
