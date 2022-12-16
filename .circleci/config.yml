@@ -31,7 +31,6 @@ jobs:
             sudo apt-get install default-mysql-client
             mysql -h 127.0.0.1 -u root rese_test < sql-data/dummy.sql
             mysql -h 127.0.0.1 -u root --execute="create database rese_db"
-\\
       # run seeding
       - run: php artisan migrate
       - run: php artisan db:seed
