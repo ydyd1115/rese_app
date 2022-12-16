@@ -62,6 +62,13 @@ commands:
           working_directory: backend
           command: php artisan test
 
+jobs:
+  run_test:
+    executor: deploy_container
+    steps:
+      - checkout
+      - run_test
+
 workflows:
   push-branch-workflow:
     jobs:
