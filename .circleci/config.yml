@@ -33,7 +33,7 @@ jobs:
       - run:
           name: MySQL CLI のインストール; ダミー データのインポート; サンプル クエリの実行
           command: |
-            sudo apt-get update
+            sudo apt-get update && sudo apt-get dist-upgrade
             sudo apt-get install mysql-server
             mysql -h 127.0.0.1 -u root rese_test < sql-data/dummy.sql
             mysql -h 127.0.0.1 -u root --execute="create database rese_db"
