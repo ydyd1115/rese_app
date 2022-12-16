@@ -5,7 +5,13 @@ jobs:
   build:
     docker:
       - image: cimg/php:8.1-browsers # ステップが実行されるプライマリコンテナ
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
       - image: cimg/mysql:8.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: rese_test
@@ -27,6 +33,7 @@ jobs:
       - run:
           name: MySQL CLI のインストール; ダミー データのインポート; サンプル クエリの実行
           command: |
+            sudo apt-get install default-mysql-client
             mysql -h 127.0.0.1 -u root rese_test < sql-data/dummy.sql
             mysql -h 127.0.0.1 -u root --execute="create database rese_db"
       # run seeding
