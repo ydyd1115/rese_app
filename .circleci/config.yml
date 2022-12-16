@@ -5,9 +5,8 @@ jobs:
   build:
     docker:
       - image: cimg/php:8.1-browsers # ステップが実行されるプライマリコンテナ
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
+        command: [--default-authentication-plugin=mysql_native_password]
+
       - image: cimg/mysql:8.0
         auth:
           username: mydockerhub-user
