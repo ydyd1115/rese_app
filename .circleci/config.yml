@@ -28,10 +28,13 @@ jobs:
             DOCKERIZE_VERSION: v0.6.1
 
       - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 3m # Point 2      
-
-      # Download and cache dependencies
+          name: Waiting for DB connection
+          command: dockerize -wait tcp://cidb:3306 -timeout 120s
+      - run: mkdir -p ~/reports/coverage
+      - run:
+          command: composer cs-check-report > ~/reports/cs-check-results.xml
+          background: true # ←バックグラウンド処理にした
+      - run: php artisan migrate --database=rese_test --path=database/migrations/foobar --seed
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
@@ -44,10 +47,5 @@ jobs:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
+      - run: ./vendor/bin/phpunit -c ./phpunit.ci.xml --coverage-html ~/reports/coverage tests/   
 
-      # run seeding
-      - run: php artisan migrate
-      - run: php artisan db:seed
-
-      # run tests!
-      - run: php ./vendor/bin/phpunit
