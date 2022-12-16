@@ -17,8 +17,7 @@ executors:
           MYSQL_ROOT_HOST: '%'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           TZ: Asia/Tokyo
-orbs:
-  slack: circleci/slack@4.3.0
+
 
 commands:
   run_test:
