@@ -61,3 +61,9 @@ commands:
           name: run phpunit
           working_directory: backend
           command: php artisan test
+
+workflows:
+  push-branch-workflow:
+    jobs:
+      - run_test:
+          name: "run_test"
