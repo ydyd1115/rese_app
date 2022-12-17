@@ -3,24 +3,19 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/php:8.0.13
+      - image: cimg/php:8.1-browsers # ステップが実行されるプライマリコンテナ
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
+      - image: cimg/mysql:8.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
         environment:
-          APP_ENV: testing
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_DATABASE: testing
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
-      - image: circleci/mysql:8
-        environment:
-          MYSQL_DATABASE: testing
-          MYSQL_ROOT_HOST: '%'
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          TZ: Asia/Tokyo
-
-
-commands:
-  run_test:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: rese_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+      
     steps:
       - checkout
       - restore_cache:
@@ -46,7 +41,7 @@ commands:
       - run:
           name: "Create database and run migration"
           command: |
-            touch storage/testing.sqlite
+            touch database/testing.sqlite
             php artisan migrate --env=testing --database=sqlite_testing --force
       - run:
           name: "テスト"
