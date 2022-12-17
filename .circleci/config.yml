@@ -1,53 +1,50 @@
 version: 2.1
+
 jobs:
   build:
     docker:
-      - image: cimg/php:8.2.0-node
-      - image: circleci/mysql:8.0.17
-        command: mysqld --default-authentication-plugin=mysql_native_password
 
-    environment:
-      - APP_DEBUG: true
-      - APP_ENV: testing
-      - APP_KEY: base64:6ctYtAPElOYuQ38tQaAINs78YRKEoL4gIIqU8QvlJxw=
-      - DB_CONNECTION: rese_test
-      - MYSQL_ALLOW_EMPTY_PASSWORD: true
-      
-    working_directory: ~/repo
+      - image: cimg/php:8.1-browsers # ステップが実行されるプライマリコンテナ
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
+      - image: cimg/mysql:8.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: rese_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
       
     steps:
       - checkout
-
-      # Install PHP Extension
-      - run: sudo docker-php-ext-install pdo_mysql
-      
-      - run:
-          name: Install dockerize
-          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-          environment:
-            DOCKERIZE_VERSION: v0.6.1
-
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 3m # Point 2      
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "composer.json" }}
+            - v1-dependencies-
 
       - run: composer install -n --prefer-dist
-      - run: yarn install
+
       - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
-
-      # run seeding
-      - run: php artisan migrate
-      - run: php artisan db:seed
-
-      # run tests!
-      - run: php ./vendor/bin/phpunit
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: yarn install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: "Create database and run migration"
+          command: |
+            touch database/testing.sqlite
+            php artisan migrate --env=testing --database=sqlite_testing --force
+      - run:
+          name: "テスト"
+          command: |
+            ./vendor/bin/phpunit
