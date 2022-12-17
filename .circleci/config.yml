@@ -25,52 +25,30 @@ commands:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "backend/composer.json" }}
+            - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
-      - run:
-          name: composer install
-          working_directory: backend
-          command: composer install
-      - run:
-          name: laravel setting
-          working_directory: backend 
-          environment:
-            ENV: circleci
-          command: sh ../infra/docker/php/laravel_setting.sh
+
+      - run: composer install -n --prefer-dist
+
       - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
-            - backend/vendor
-          key: v1-dependencies-{{ checksum "backend/composer.json" }}
-      - run: 
-          name: run phpstan
-          working_directory: backend
-          command: ./vendor/bin/phpstan --memory-limit=1G analyse
-      - run: 
-          name: run cp env file
-          working_directory: backend
-          command: cp .env.example .env  
-      - run: 
-          name: run key generate
-          working_directory: backend
-          command: php artisan key:generate
-      - run: 
-          name: run migrate
-          working_directory: backend
-          command: php artisan migrate:fresh --seed
-      - run: 
-          name: run phpunit
-          working_directory: backend
-          command: php artisan test
-
-jobs:
-  run_test:
-    executor: deploy_container
-    steps:
-      - checkout
-      - run_test
-
-workflows:
-  push-branch-workflow:
-    jobs:
-      - run_test:
-          name: "run_test"
+            - ./vendor
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: yarn install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: "Create database and run migration"
+          command: |
+            touch storage/testing.sqlite
+            php artisan migrate --env=testing --database=sqlite_testing --force
+      - run:
+          name: "テスト"
+          command: |
+            ./vendor/bin/phpunit
