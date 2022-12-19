@@ -90,11 +90,10 @@ class AdministerController extends Controller
 
     public function img_up(Request $request)
     {
-        dd(Storage::disk('s3'));
-        $img = Storage::disk('s3')
+        $img = Storage::disk('public')
         ->putFile('files',$request->file('file'));
         
-        $image_URL =['image_URL' =>Storage::disk('s3')->url($img)];
+        $image_URL =['image_URL' =>Storage::disk('public')->url($img)];
         Shop::find($request->id)
         ->update($image_URL);
         
