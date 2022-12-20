@@ -90,7 +90,6 @@ class AdministerController extends Controller
 
     public function img_up(Request $request)
     {
-        // dd(Storage::disk('s3'));
         $img = Storage::disk('s3')
         ->putFile('/',$request->file('file'));
         
