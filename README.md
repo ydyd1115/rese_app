@@ -41,12 +41,12 @@
 <li>MySQL</li>
 </ul>
 
-<h3>##テーブル設計##</h3>
-<p>users</p>
+<h2>##テーブル設計##</h2>
+<h3>users</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
-<tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
 <tr><td>nickname</td>varchar(20)<td>〇</td><td></td></tr>  
 <tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
 <tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
@@ -54,70 +54,59 @@
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
 
-<p>shops</p>
+
+<h3>shops</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
-<tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
-<tr><td>area</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
+<tr><td>area</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
 <tr><td>genre</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
 
-<p>shops</p>
+<h3>likes</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
-<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
-<tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
-<tr><td>area</td>varchar(20)<td>〇</td><td></td></tr>  
-<tr><td>genre</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
-<tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td><td>integer</td><td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
 
-<p>likes</p>
+<h3>reviews</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
-<tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
-<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>user_id</td><td>integer</td><td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>date_time</td><td>datetime</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>grade</td><td>small_int</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
+
+<h3>reserve</>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td><td>integer</td><td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>num_of_people</td><td>integer</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>date_time</td><td>datetime</td><td>〇</td><td></td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
 
-<p>reviews</p>
+<h3>administers</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
-<tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
-<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
-<tr><td>date_time</td>datetime<td>〇</td><td></td><td></td></tr>  
-<tr><td>grade</td>small_int<td>〇</td><td></td><td></td></tr>  
-<tr><td>comment</td>varchar(255)<td>〇</td><td></td><td></td></tr>  
-<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
-</table>
-
-<p>reserve</p>
-<table>
-<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
-<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
-<tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
-<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
-<tr><td>num_of_people</td>integer<td>〇</td><td></td><td></td></tr>  
-<tr><td>date_time</td>datetime<td>〇</td><td></td><td></td></tr>  
-<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
-<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
-</table>
-
-<p>administers</p>
-<table>
-<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
-<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
-<tr><td>name</td>varchar(20)<td>〇</td><td></td><td></td></tr>  
-<tr><td>role</td>integer<td>〇</td><td></td><td></td></tr>  
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>role</td><td>integer</td><td>〇</td><td></td><td></td></tr>  
 <tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
 <tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
