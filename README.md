@@ -1,64 +1,112 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+目的#アプリケーション名:Rese（リーズ）
+ある企業のグループ会社の飲食店予約サービス
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##作成した目的
+外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたい。
 
-## About Laravel
+##アプリケーションURL
+http://13.230.153.221/
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##機能一覧
+ログイン機能(ユーザー・管理者・店舗代表者)
+-ユーザー機能
+--予約機能
+--予約変更機能
+--お気に入り機能
+--店舗レビュー機能
+--リマインド機能(当日予約確認:QRコード付)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-管理者機能
+--店舗代表者登録・編集機能
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-店舗代表者機能
+--店舗情報編集機能
+--予約変更機能
+--メール連絡機能
 
-## Learning Laravel
+##仕様技術
+--Laravel 8.X
+-vue.js 2.X
+-JavaScript
+-Amazon-Web-Service
+-MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##テーブル設計
+-users
+--id unsighned bigiht notnull
+--name
+--nickname
+--email
+--password
+--created_at
+--updated_at
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-shops
+--id unsighned bigiht notnull
+--name
+--area
+--genre
+--comment
+--created_at
+--updated_at
 
-## Laravel Sponsors
+-likes
+--id unsighned bigiht notnull
+--user_id
+--shop_id
+--created_at
+--updated_at
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+-reviews
+--id unsighned bigiht notnull
+--user_id
+--shop_id
+--date_time
+--grade
+--comment
+--created_at
+--updated_at
 
-### Premium Partners
+-reserves
+--id unsighned bigiht notnull
+--user_id
+--shop_id
+--num_of_people
+--date_time
+--created_at
+--updated_at
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-administers
+--id unsighned bigiht notnull
+--name
+--role
+--email
+--password
+--created_at
+--updated_at
 
-## Contributing
+-shops_administers
+--id
+--administer_id
+--created_at
+--updated_at
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+##ER図
 
-## Code of Conduct
+##環境構築
+-php8.1.12
+-php-extention:gd,ImageMagick
+-web-server:nginx/1.22.0
+-database:mysql(local:ver.15.1)(AWS:ver.8.0.31)
+-node:v16.17.1
+-nmp:ver8.15
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-added package
+--"league/flysystem": "^1.1",
+--"league/flysystem-aws-s3-v3": "~1.0",
+--"league/flysystem-cached-adapter": "~1.0",
+--"simplesoftwareio/simple-qrcode": "^4.2"
 
-## Security Vulnerabilities
+##その他
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
