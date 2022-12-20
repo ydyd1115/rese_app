@@ -12,7 +12,7 @@
 
 <h2>##機能一覧##</h2>
 <h3>ログイン機能(ユーザー・管理者・店舗代表者)</h3>
-<p>-ユーザー機能</p>
+<p>--ユーザー機能--</p>
 <ul>
 <li>予約機能</li>
 <li>予約変更機能</li>
@@ -21,12 +21,12 @@
 <li>リマインド機能(当日予約確認:QRコード付)</li>
 </ul>
 
-<p>管理者機能</p>
+<p>--管理者機能--</p>
 <ul>
 <li>店舗代表者登録・編集機能</li>
 </ul>
 
-<p>店舗代表者機能</p>
+<p>--店舗代表者機能--</p>
 <ul>
 <li>店舗情報編集機能</li>
 <li>予約変更機能</li>
@@ -118,7 +118,7 @@
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
 <tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
-<tr><td>administer_id</td>integer<td></td><td>〇</td><td>administer(id)</td><td></td></tr>  
+<tr><td>administer_id</td><td>integer</td><td>〇</td><td>administer(id)</td><td></td></tr>  
 <tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
