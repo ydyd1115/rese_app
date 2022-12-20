@@ -49,6 +49,7 @@
 <tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
 <tr><td>nickname</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
 <tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
+<tr><td>email_verified_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
@@ -113,7 +114,7 @@
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
 
-<h3>shops_administers</h3>
+<h3>shop_administers</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>

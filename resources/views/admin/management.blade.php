@@ -206,7 +206,7 @@
               <table  class="send_mail__modal__table">
                   <th><label for="user_name">送信先</label></th>
                   <td>
-                    <input type="text" name="user_name" id="user_name" value="{{$reserve->user->name}}">様
+                    <input type="text" name="user_name" id="user_name" value="{{$reserve->user->name}}" readonly>様
                     <input type="text" name="user_email" value="{{$reserve->user->email}}"  hidden>
                   </td>
                 </tr>

@@ -26,7 +26,7 @@ class ManagerRequest extends FormRequest
         return [
             'm_family_name' =>'required',
             'm_first_name' =>'required',
-            'm_email' => 'required|email',
+            'm_email' => 'required|email|unique:administers,email',
         ];
     }
 

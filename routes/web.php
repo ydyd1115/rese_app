@@ -23,39 +23,32 @@ Route::get('/',[ShopController::class,'index']);
 Route::post('/search',[ShopController::class,'search'])
         ->name('search');
         
-        Route::get('/detail/{id}',[ShopController::class,'detail'])
+Route::get('/detail/{id}',[ShopController::class,'detail'])
         ->name('detail');
         
-        Route::post('/like/{id}',[ShopController::class,'like'])
+Route::post('/like/{id}',[ShopController::class,'like'])
         ->name('like');
         
-        Route::post('/dis_like/{id}',[ShopController::class,'dis_like'])
+Route::post('/dis_like/{id}',[ShopController::class,'dis_like'])
         ->name('dislike');
         
-        Route::post('/reserve',[ShopController::class,'reserve'])
+Route::post('/reserve',[ShopController::class,'reserve'])
         ->middleware(['auth'])->name('reserve');
         
-        Route::post('/review',[ShopController::class,'review'])
-        ->name('review');
-        
-        Route::post('/update/{id}',[ShopController::class,'update'])
+Route::post('/update/{id}',[ShopController::class,'update'])
         ->name('update');
         
-        Route::post('/delete/{id}',[ShopController::class,'delete'])
+Route::post('/delete/{id}',[ShopController::class,'delete'])
         ->name('delete');
         
-        Route::get('/mypage',[Usercontroller::class,'mypage'])
-                ->name('mypage');
+Route::post('/review',[ShopController::class,'review'])
+        ->name('review');
         
-        Route::get('/dashboard', function () {
-                return view('dashboard');
-        })->middleware(['auth'])->name('dashboard');
-        
+Route::get('/mypage',[Usercontroller::class,'mypage'])
+        ->name('mypage');        
         
 require __DIR__.'/auth.php';
 
 Route::prefix('admin')->name('admin.')->group(function(){
         require __DIR__.'/admin.php';
 });
-
-Route::get('/test',[MailController::class,'remind_mail']);

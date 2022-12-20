@@ -24,24 +24,16 @@ class MailRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_name' => 'string',
-            'user_email' => 'string',
-            'mail_title'=> 'string',
-            'message' => 'string',
-            'shop_name' => 'string',
-            'shop_email' => 'string',
+            'mail_title'=> 'required',
+            'message' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'user_name.string' => 'user_nameは文字列で入力してください',
-            'user_email.string' => 'user_emailは文字列で入力してください',
-            'mail_title.string'=> 'mail_titleは文字列で入力してください',
-            'message.string' => 'messageは文字列で入力してください',
-            'shop_name.string' => 'shop_nameは文字列で入力してください',
-            'shop_email.string' => 'shop_emailは文字列で入力してください',
+            'mail_title.string'=> '件名を入力してください',
+            'message.string' => 'メッセージを入力してください',
         ];
     }
 }

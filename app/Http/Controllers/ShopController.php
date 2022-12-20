@@ -40,27 +40,6 @@ class ShopController extends Controller
         return view('index',$param);
     }
     
-    public function like(Request $request)
-    {
-        $user=Auth::user();
-        
-        $like =[
-            'user_id'=>$user->id,
-            'shop_id'=>$request->id,
-            'status' =>'1'
-        ];
-        
-        Like::create($like);
-        return back();
-    }
-    
-    public function dis_like(Request $request)
-    {
-        $user=Auth::user();
-        Like::where('shop_id', '=', $request->id)->delete();
-        return back();
-    }
-    
     public function detail(Request $request)
     {
         $user = Auth::user();        
@@ -71,11 +50,23 @@ class ShopController extends Controller
         return view('detail',$param);
     }
     
-    public function review(ReviewRequest $request)
+    public function like(Request $request)
     {
-        $review = $request->all();
-        Review::create($review);
-
+        $user=Auth::user();
+        
+        $like =[
+            'user_id'=>$user->id,
+            'shop_id'=>$request->id,
+        ];
+        
+        Like::create($like);
+        return back();
+    }
+    
+    public function dis_like(Request $request)
+    {
+        $user=Auth::user();
+        Like::where('shop_id', '=', $request->id)->delete();
         return back();
     }
     
@@ -91,7 +82,7 @@ class ShopController extends Controller
         
         return view('done');
     }
-
+    
     public function update(ReserveRequest $request)
     {   
         $user = Auth::user();
@@ -101,9 +92,9 @@ class ShopController extends Controller
             'shop_id'=>$request->shop_id,
             'number' =>$request->number,
             'date_time'=>$request->date." ".$request->time
-            ]);
+        ]);
         
-            return redirect('./mypage');
+        return redirect('./mypage');
     }
     
     public function delete(Request $request)
@@ -111,20 +102,12 @@ class ShopController extends Controller
         Reserve::find($request->id)->delete();
         return redirect('./mypage');
     }
+    
+    public function review(ReviewRequest $request)
+    {
+        $review = $request->all();
+        Review::create($review);
 
-    public function test(){
-        $user_name = "テストユーザ";
-        $message = "テストメッセージ";
-        $shop_name = "店舗名";
-        $shop_email = "shop@mail.com";
-
-        $param = [
-            'user_name' => $user_name,
-            'message' => $message,
-            'shop_name' => $shop_name,
-            'shop_email' => $shop_email,
-        ];
-
-        return view('mail.admin_mail',$param);
+        return back();
     }
 }

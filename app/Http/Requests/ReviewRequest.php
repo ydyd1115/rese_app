@@ -25,7 +25,7 @@ class ReviewRequest extends FormRequest
     {
         return [
             'date_time' => 'required|date|before_or_equal:today',
-            'grade' => 'required',
+            'grade' => 'required|between:1,5',
             'comment' => 'required|string|max:255',
         ];
     }
@@ -37,6 +37,7 @@ class ReviewRequest extends FormRequest
             'date_time.date' => 'カレンダーより日付を選択してください',
             'date_time.before_or_equal' => '本日以前の日付を入力してください',
             'grade.required' => '評価を入力してください',
+            'grade.between' => '評価は1～5の数字を入力してください',
             'comment.required' => 'コメントを入力してください',
             'comment.max:255' => 'コメントは125文字以内で入力してください',
         ];

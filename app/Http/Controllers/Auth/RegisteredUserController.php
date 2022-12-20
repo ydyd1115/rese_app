@@ -43,11 +43,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect('/thanks');
-    }
-
-    public function thanks()
-    {
         return view('auth.thanks');
     }
+
 }
