@@ -1,112 +1,147 @@
-目的#アプリケーション名:Rese（リーズ）
-ある企業のグループ会社の飲食店予約サービス
+<h1>アプリケーション説明</h1>
+<h2>Rese（リーズ）</h2>
+<h3>ある企業のグループ会社の飲食店予約サービス</h3>  
+<img src="./トップページ.PNG"/>
 
-##作成した目的
-外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたい。
 
-##アプリケーションURL
-http://13.230.153.221/
+<h3>##作成した目的##</h3>
+<p>外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたい。</p>
 
-##機能一覧
-ログイン機能(ユーザー・管理者・店舗代表者)
--ユーザー機能
---予約機能
---予約変更機能
---お気に入り機能
---店舗レビュー機能
---リマインド機能(当日予約確認:QRコード付)
+<h2>##アプリケーションURL##</h2>
+<h3><a href="http://13.230.153.221/"></a>http://13.230.153.221/</h3>
 
--管理者機能
---店舗代表者登録・編集機能
+<h2>##機能一覧##</h2>
+<h3>ログイン機能(ユーザー・管理者・店舗代表者)</h3>
+<p>-ユーザー機能</p>
+<ul>
+<li>予約機能</li>
+<li>予約変更機能</li>
+<li>お気に入り機能</li>
+<li>店舗レビュー機能</li>
+<li>リマインド機能(当日予約確認:QRコード付)</li>
+<li></li>
+<li></li>
+</ul>
 
--店舗代表者機能
---店舗情報編集機能
---予約変更機能
---メール連絡機能
+<p>管理者機能</p>
+<ul>
+<li>店舗代表者登録・編集機能</li>
+</ul>
 
-##仕様技術
---Laravel 8.X
--vue.js 2.X
--JavaScript
--Amazon-Web-Service
--MySQL
+<p>店舗代表者機能</p>
+<ul>
+<li>店舗情報編集機能</li>
+<li>予約変更機能</li>
+<li>メール連絡機能</li>
+</ul>
 
-##テーブル設計
--users
---id unsighned bigiht notnull
---name
---nickname
---email
---password
---created_at
---updated_at
+<h2>##使用技術##</h2>
+<ul>
+<li>Laravel 8.X</li>
+<li>vue.js 2</li>
+<li>Amazon Web Service</li>
+<li>MySQL</li>
+</ul>
 
--shops
---id unsighned bigiht notnull
---name
---area
---genre
---comment
---created_at
---updated_at
+<h3>##テーブル設計##</h3>
+<p>users</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
+<tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>nickname</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
+<tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
--likes
---id unsighned bigiht notnull
---user_id
---shop_id
---created_at
---updated_at
+<p>shops</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
+<tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>area</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>genre</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
--reviews
---id unsighned bigiht notnull
---user_id
---shop_id
---date_time
---grade
---comment
---created_at
---updated_at
+<p>shops</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
+<tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>area</td>varchar(20)<td>〇</td><td></td></tr>  
+<tr><td>genre</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
--reserves
---id unsighned bigiht notnull
---user_id
---shop_id
---num_of_people
---date_time
---created_at
---updated_at
+<p>likes</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
--administers
---id unsighned bigiht notnull
---name
---role
---email
---password
---created_at
---updated_at
+<p>reviews</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>date_time</td>datetime<td>〇</td><td></td><td></td></tr>  
+<tr><td>grade</td>small_int<td>〇</td><td></td><td></td></tr>  
+<tr><td>comment</td>varchar(255)<td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
--shops_administers
---id
---administer_id
---created_at
---updated_at
+<p>reserve</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>num_of_people</td>integer<td>〇</td><td></td><td></td></tr>  
+<tr><td>date_time</td>datetime<td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
-##ER図
+<p>administers</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>name</td>varchar(20)<td>〇</td><td></td><td></td></tr>  
+<tr><td>role</td>integer<td>〇</td><td></td><td></td></tr>  
+<tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
+<tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
-##環境構築
--php8.1.12
--php-extention:gd,ImageMagick
--web-server:nginx/1.22.0
--database:mysql(local:ver.15.1)(AWS:ver.8.0.31)
--node:v16.17.1
--nmp:ver8.15
+<p>shops_administers</p>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>administer_id</td>integer<td>〇</td><td>administer(id)</td><td></td></tr>  
+<tr><td>name</td>varchar(20)<td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 
--added package
---"league/flysystem": "^1.1",
---"league/flysystem-aws-s3-v3": "~1.0",
---"league/flysystem-cached-adapter": "~1.0",
---"simplesoftwareio/simple-qrcode": "^4.2"
+<h2>##ER図##</h2>
+<img src="./index.drawio.png"/>
 
-##その他
+<h2>##環境構築##</h2>
+<ul>
+<li>php8.1.12</li>
+<li>php-extention:gd,ImageMagick</li>
+<li>web-server:nginx/1.22.0</li>
+<li>database:mysql(local:ver.15.1)(AWS:ver.8.0.31)</li>
+<li>node:v16.17.1</li>
+<li>nmp:ver8.15</li>
+<li>
+added package
+<ul>
+<li>"league/flysystem": "^1.1"</li>
+<li>"league/flysystem-aws-s3-v3": "~1.0"</li>
+<li>"league/flysystem-cached-adapter": "~1.0"</li>
+<li>"simplesoftwareio/simple-qrcode": "^4.2"</li>
+<li></li>
+</ul>
+</li>
+</ul>
 
 
