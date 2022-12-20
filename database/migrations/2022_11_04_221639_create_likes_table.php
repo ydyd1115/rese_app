@@ -17,7 +17,6 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('shop_id');
-            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

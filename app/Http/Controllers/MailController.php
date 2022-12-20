@@ -42,14 +42,6 @@ class MailController extends Controller
         $reserves = Reserve::where('date_time','>=',$today->format('Y-m-d'))
         ->where('date_time','<',$tomorrow->format('Y-m-d'))->get();    
 
-        // foreach ($reserves as $reserve) {
-        //     Mail::send('mail.remind_mail', ['reserve' => $reserve],function ($message) use ($reserve) {
-        //         $message->to($reserve->user->email)
-        //                 ->subject('ご予約の確認');
-        //     });
-        // }
-
-
         return view('mail.remind_mail_test',['reserves'=>$reserves]);
     }
 }
