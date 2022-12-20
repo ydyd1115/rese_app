@@ -1,64 +1,150 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>アプリケーション説明</h1>
+<h2>Rese（リーズ）</h2>
+<h3>ある企業のグループ会社の飲食店予約サービス</h3>  
+<img src="./トップページ.PNG"/>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+<h3>##作成した目的##</h3>
+<p>外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたい。</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2>##アプリケーションURL##</h2>
+<h3><a href="http://13.230.153.221/"></a>http://13.230.153.221/</h3>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h2>##機能一覧##</h2>
+<h3>ログイン機能(ユーザー・管理者・店舗代表者)</h3>
+<p>--ユーザー機能--</p>
+<ul>
+<li>予約機能</li>
+<li>予約変更機能</li>
+<li>お気に入り機能</li>
+<li>店舗レビュー機能</li>
+<li>リマインド機能(当日予約確認:QRコード付)</li>
+</ul>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>--管理者機能--</p>
+<ul>
+<li>店舗代表者登録・編集機能</li>
+</ul>
 
-## Learning Laravel
+<p>--店舗代表者機能--</p>
+<ul>
+<li>店舗情報編集機能</li>
+<li>予約変更機能</li>
+<li>メール連絡機能</li>
+</ul>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<h2>##使用技術##</h2>
+<ul>
+<li>Laravel 8.X</li>
+<li>vue.js 2</li>
+<li>Amazon Web Service</li>
+<li>MySQL</li>
+</ul>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2>##テーブル設計##</h2>
+<h3>users</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
+<tr><td>nickname</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
+<tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
+<tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<h3>shops</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
+<tr><td>area</td><td>varchar(20)</td><td>〇</td><td></td></tr>  
+<tr><td>genre</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-### Premium Partners
+<h3>likes</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td><td>integer</td><td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<h3>reviews</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td><td>integer</td><td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>date_time</td><td>datetime</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>grade</td><td>small_int</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-## Contributing
+<h3>reserve</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>user_id</td><td>integer</td><td>〇</td><td>user(id)</td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>num_of_people</td><td>integer</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>date_time</td><td>datetime</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h3>administers</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>role</td><td>integer</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>email</td><td>varchar(100)</td><td>〇</td><td></td><td>unique</td></tr>
+<tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-## Code of Conduct
+<h3>shops_administers</h3>
+<table>
+<tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
+<tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>administer_id</td><td>integer</td><td>〇</td><td>administer(id)</td><td></td></tr>  
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>  
+<tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+<tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<h2>##ER図##</h2>
+<img src="./index.drawio.png"/>
 
-## Security Vulnerabilities
+<h2>##環境構築##</h2>
+<ul>
+<li>php8.1.12</li>
+<li>php-extention:gd,ImageMagick</li>
+<li>web-server:nginx/1.22.0</li>
+<li>database:mysql(local:ver.15.1)(AWS:ver.8.0.31)</li>
+<li>node:v16.17.1</li>
+<li>nmp:ver8.15</li>
+<li>
+added package
+<ul>
+<li>"league/flysystem": "^1.1"</li>
+<li>"league/flysystem-aws-s3-v3": "~1.0"</li>
+<li>"league/flysystem-cached-adapter": "~1.0"</li>
+<li>"simplesoftwareio/simple-qrcode": "^4.2"</li>
+</ul>
+</li>
+</ul>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
