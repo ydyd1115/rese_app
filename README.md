@@ -19,8 +19,6 @@
 <li>お気に入り機能</li>
 <li>店舗レビュー機能</li>
 <li>リマインド機能(当日予約確認:QRコード付)</li>
-<li></li>
-<li></li>
 </ul>
 
 <p>管理者機能</p>
@@ -45,6 +43,7 @@
 
 <h3>##テーブル設計##</h3>
 <p>users</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
 <tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
@@ -53,8 +52,10 @@
 <tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>shops</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
 <tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
@@ -63,8 +64,10 @@
 <tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>shops</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td></tr>
 <tr><td>name</td>varchar(20)<td>〇</td><td></td></tr>  
@@ -73,16 +76,20 @@
 <tr><td>comment</td><td>varchar(255)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>likes</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
 <tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
 <tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>reviews</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
 <tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
@@ -91,8 +98,10 @@
 <tr><td>grade</td>small_int<td>〇</td><td></td><td></td></tr>  
 <tr><td>comment</td>varchar(255)<td>〇</td><td></td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>reserve</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
 <tr><td>user_id</td>integer<td>〇</td><td>user(id)</td><td></td></tr>  
@@ -101,8 +110,10 @@
 <tr><td>date_time</td>datetime<td>〇</td><td></td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>administers</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
 <tr><td>name</td>varchar(20)<td>〇</td><td></td><td></td></tr>  
@@ -111,8 +122,10 @@
 <tr><td>password</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <p>shops_administers</p>
+<table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
 <tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
@@ -120,6 +133,7 @@
 <tr><td>name</td>varchar(20)<td>〇</td><td></td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
+</table>
 
 <h2>##ER図##</h2>
 <img src="./index.drawio.png"/>
@@ -139,9 +153,9 @@ added package
 <li>"league/flysystem-aws-s3-v3": "~1.0"</li>
 <li>"league/flysystem-cached-adapter": "~1.0"</li>
 <li>"simplesoftwareio/simple-qrcode": "^4.2"</li>
-<li></li>
 </ul>
 </li>
 </ul>
+
 
 
