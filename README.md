@@ -113,13 +113,13 @@
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
 
-<p>shops_administers</p>
+<h3>shops_administers</h3>
 <table>
 <tr><th>column</th><th>data_type</th><th>not_null</th><th>foreign_key</th><th>options</th></tr>
 <tr><td>id</td><td>unsighned bigiht</td><td>〇</td><td></td><td></td></tr>
-<tr><td>shop_id</td>integer<td>〇</td><td>shop(id)</td><td></td></tr>  
-<tr><td>administer_id</td>integer<td>〇</td><td>administer(id)</td><td></td></tr>  
-<tr><td>name</td>varchar(20)<td>〇</td><td></td><td></td></tr>  
+<tr><td>shop_id</td><td>integer</td><td>〇</td><td>shop(id)</td><td></td></tr>  
+<tr><td>administer_id</td>integer<td></td><td>〇</td><td>administer(id)</td><td></td></tr>  
+<tr><td>name</td><td>varchar(20)</td><td>〇</td><td></td><td></td></tr>  
 <tr><td>created_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 <tr><td>updated_at</td><td>timestamp</td><td></td><td></td><td></td></tr>
 </table>
