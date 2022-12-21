@@ -65,8 +65,7 @@ class LoginRequest extends FormRequest
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスの形式で入力してください',
             'password.required' => 'パスワードを入力してください',
-            'password.max:100,' => '100
-            文字以内で入力してください',
+            'password.max:100,' => '100文字以内で入力してください',
         ];
     }
 

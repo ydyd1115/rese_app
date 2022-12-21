@@ -80,11 +80,17 @@ p {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content:inherit;
 }
 .shop_reserve h2{
   margin:8px 0 16px 5%;
   
+}
+
+.shop_reserve form{
+  height:90%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .shop_reserve__content{
@@ -133,10 +139,11 @@ p {
 }
 
 .shop_reserve__confirm{
+  width:98%;
   background-color: #88c;
   border-radius: 8px;
   padding:16px 8px;
-  margin-bottom:16px;
+  margin:16px auto;
 }
 
 .shop_reserve__confirm th{
@@ -149,6 +156,7 @@ p {
 }
 
 .shop_reserve__btn{
+  display:block;
   text-align: center;
   text-decoration: none;
   width:100%;
@@ -160,6 +168,30 @@ p {
   border: none;
   border-radius:0 0 10px 10px;
   font-size:20px;
+  
+}
+
+.shop_reserve__content h3{
+  text-align:center;
+}
+
+.shop_reserve__before_login{
+  text-align: center;
+  text-decoration: none;
+  width: 80%;
+  margin:24px  auto;
+  padding: 16px 0;
+  color: white;
+  background-color: #44c;
+  height: 40px;
+  border: none;
+  border-radius:10px;
+  font-size: 20px;
+}
+
+.shop_reserve__before_login p{
+  font-size:28px;
+  font-weight:600;
 }
 /* shop_reserve_end */
 

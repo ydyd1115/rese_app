@@ -45,7 +45,7 @@ Route::post('/review',[ShopController::class,'review'])
         ->name('review');
         
 Route::get('/mypage',[Usercontroller::class,'mypage'])
-        ->name('mypage');        
+        ->middleware(['auth'])->name('mypage');        
         
 require __DIR__.'/auth.php';
 

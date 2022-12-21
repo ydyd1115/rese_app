@@ -44,8 +44,8 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($administer));
-        // Auth::login($Administer);
         Auth::guard('admin')->login($administer);
+        
         return redirect('/admin/admin_ope');
     }
 

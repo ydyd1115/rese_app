@@ -15,8 +15,8 @@ class UserController extends Controller
         $user = Auth::user();
         $today =new Carbon('today');
         $reserves = Reserve::where('user_id','=',$user->id)
-        ->where('date_time','>=',$today->format('Y-m-d'))
-        ->orderby('date_time','asc')->get();
+            ->where('date_time','>=',$today->format('Y-m-d'))
+            ->orderby('date_time','asc')->get();
         $shops = User::find($user->id)->shops()->get();
         $param = ['user'=>$user,'reserves'=>$reserves,'shops'=>$shops];
         return view('mypage',$param);
