@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-Route::get('register', [RegisteredUserController::class, 'create']);
+        Route::get('register', [RegisteredUserController::class, 'create']);
         
         Route::post('register', [RegisteredUserController::class, 'store'])
                 ->name('register');

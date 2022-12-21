@@ -84,7 +84,7 @@ class ShopController extends Controller
         
         return view('done');
     }
-    
+
     public function update(ReserveRequest $request)
     {   
         $user = Auth::user();
@@ -96,13 +96,13 @@ class ShopController extends Controller
                 'date_time'=>$request->date." ".$request->time
             ]);
         
-        return redirect('./mypage');
+        return redirect()->route('mypage');
     }
     
     public function delete(Request $request)
     {
         Reserve::find($request->id)->delete();
-        return redirect('./mypage');
+        return redirect()->route('mypage');
     }
     
     public function review(ReviewRequest $request)

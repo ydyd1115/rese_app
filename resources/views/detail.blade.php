@@ -28,52 +28,58 @@
     </div>
     <div class="shop_reserve">
       <h2>予約</h2>
-      <div class="shop_reserve__content"  id="reserve_form">
+      @if(Auth::check())
         <form action="/reserve" method="post" name="reserve_post">
-          @csrf
-          @if(Auth::check())
+          <div class="shop_reserve__content" id="reserve_form">
+            @csrf
             <input type="text" name="user_id" value="{{$user['id']}}" hidden>
-          @endif
             <input type="text" name="shop_id" value="{{$shop['id']}}" hidden>
-          @if ($errors->has('date'))
-            <p class="error_message">{{$errors->first('date')}}</p>
-          @endif
-            <input class="shop_reserve__date" type="date" name="date" value="{{old('date')}}" v-model="date">
-          @if ($errors->has('time'))
-            <p class="error_message">{{$errors->first('time')}}</p>
-          @endif
-          <input class="shop_reserve__time" type="time" name="time" value="{{old('time')}}" v-model="time">
-          @if ($errors->has('number'))
-            <p class="error_message">{{$errors->first('number')}}</p>
-          @endif
-          <input class="shop_reserve__number" type="number" name="number" value="{{old('number')}}" min="1" max="30" v-model="number">
-          <div class="shop_reserve__confirm">
-          <table>
-            <tr>
-              <th>Shop</th>
-              <td>
-                {{$shop['name']}}</td>
-              </tr>
-              <tr>
-                <th>Date</th>
-                <td>@{{date}}</td>
-              </tr>
-              <tr>
-                <th>Time</th>
-                <td>@{{time}}</td>
-              </tr>
-              <tr>
-                <th>Number</th>
-                <td>@{{number}}</td>
-              </tr>
-            </table>
+            @if ($errors->has('date'))
+              <p class="error_message">{{$errors->first('date')}}</p>
+            @endif
+              <input class="shop_reserve__date" type="date" name="date" value="{{old('date')}}" v-model="date">
+            @if ($errors->has('time'))
+              <p class="error_message">{{$errors->first('time')}}</p>
+            @endif
+            <input class="shop_reserve__time" type="time" name="time" value="{{old('time')}}" v-model="time">
+            @if ($errors->has('number'))
+              <p class="error_message">{{$errors->first('number')}}</p>
+            @endif
+            <input class="shop_reserve__number" type="number" name="number" value="{{old('number')}}" min="1" max="30" v-model="number">
+            <div class="shop_reserve__confirm">
+              <table>
+                <tr>
+                  <th>Shop</th>
+                  <td>{{$shop['name']}}</td>
+                </tr>
+                <tr>
+                  <th>Date</th>
+                  <td>@{{date}}</td>
+                </tr>
+                <tr>
+                  <th>Time</th>
+                  <td>@{{time}}</td>
+                </tr>
+                <tr>
+                  <th>Number</th>
+                  <td>@{{number}}</td>
+                </tr>
+              </table>
+            </div>
           </div>
+          <a href="javascript:reserve_post.submit()" class="shop_reserve__btn">予約する</a>
+        </form>
+      @else
+        <div class="shop_reserve__content">
+          <h3>ご予約の場合は</h3>
+            <a class="shop_reserve__before_login" href="{{route('login')}}">
+              <p>こちらからログイン</p>
+            </a>
+          <h3>してください。</h3>
         </div>
-        <a href="javascript:reserve_post.submit()" class="shop_reserve__btn">予約する</a>
-      </form>
+      @endif
     </div>
   </div>
-
   <div class="shop_review">
     <div class="shop_review__head">
       @if (count($reviews) >0)
@@ -85,7 +91,6 @@
         <a class="shop_review__post" href="{{route('login')}}">レビューを書く(ログイン)</a>
       @endif
     </div>
-
     @if(Auth::check())
       <div class="shop_review__modal" id="shop_review__modal">
         <div class="shop_review__modal__inner">

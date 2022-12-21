@@ -7,36 +7,6 @@ new Vue({
       number:'人数を選択してください',
       date:'日付を選択してください',
   },
-  methods: {
-        onSubmit: function() {
-
-        if(!confirm('送信します。よろしいですか？')) {
-
-            return;
-
-        }
-
-        var params = {
-            user_id:$user['id'],
-            shop_id:$shop['id'],
-            date: this.date,
-            time: this.time,
-            number: this.number
-        };
-        axios.post('/reserve', params)
-            .then(function(response){
-
-                // 成功した時
-
-            })
-            .catch(function(error){
-
-                // 失敗したとき
-
-            });
-
-    }
-  }
 });
 
 
