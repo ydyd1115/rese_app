@@ -26,15 +26,15 @@
         id="closeBtn">x</button>
         @if(Auth::check())
           <a class="header__nav_menu__link" href="/">HOME</a>
-            <form method="POST" action="{{ route('logout') }}">
-              @csrf
-                <x-dropdown-link class="header__nav_menu__link" 
-                              :href="route('logout')"
-                              onclick="event.preventDefault();
-                                              this.closest('form').submit();">
-                              {{ __('Log Out') }}
-                </x-dropdown-link>
-              </form>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <x-dropdown-link class="header__nav_menu__link" 
+                          :href="route('logout')"
+                          onclick="event.preventDefault();
+                                          this.closest('form').submit();">
+                          {{ __('Log Out') }}
+            </x-dropdown-link>
+          </form>
           <a class="header__nav_menu__link" href="{{route('mypage')}}">Mypage</a>
         @else
           <a class="header__nav_menu__link" href="/">HOME</a>
@@ -61,7 +61,7 @@
           <input type="text" name="name" placeholder="search…"  value="{{old('name')}}">
           <button class="header__search__btn">検索</button>
         </form>
-        </div>
+      </div>
     </div>    
   </header>
   <main>
@@ -77,15 +77,15 @@
         <div class="shop_card__bottom">
         <a href="{{route('detail',['id' => $shop->id])}}">詳しく見る</a>
         @if(!Auth::check())
-            <button class="shop_card__like__btn" onclick="alert('お気に入り追加にはログインが必要です。')">☆</button>
-          @elseif($shop->likes != "[]")
-            <form action="{{route('dislike',['id' => $shop->id])}}" method="POST">
-              @csrf 
-              <button class="shop_card__like__btn like_true" type="submit">
-                ★
-              </button>
-            </form>
-          @elseif($shop->likes == "[]")
+          <button class="shop_card__like__btn" onclick="alert('お気に入り追加にはログインが必要です。')">☆</button>
+        @elseif($shop->likes != "[]")
+          <form action="{{route('dislike',['id' => $shop->id])}}" method="POST">
+            @csrf 
+            <button class="shop_card__like__btn like_true" type="submit">
+              ★
+            </button>
+          </form>
+        @elseif($shop->likes == "[]")
           <form id="dis_like" action="{{route('like',['id' => $shop->id])}}" method="POST">
             @csrf 
             <button class="shop_card__like__btn" type="submit">
@@ -93,8 +93,8 @@
             </button>
           </form>
         @endif
+        </div>
       </div>
-    </div>
     @endforeach
   </main>
   <script src="{{ asset('js/index.js') }}"></script>

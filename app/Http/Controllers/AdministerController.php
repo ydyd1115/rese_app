@@ -27,7 +27,7 @@ class AdministerController extends Controller
             $shops = Shop::all();
             $managers = Administer::where('role','=',2)->get();
             $param = ['shops'=>$shops,'managers'=>$managers];
-    
+
             return view('admin.admin_ope',$param);
         }
     }
@@ -45,6 +45,7 @@ class AdministerController extends Controller
             'administer_id' => $manager->id,
             'shop_id' => $shop->id
         ]);
+
         return redirect('/admin/admin_ope');
     }
 
@@ -52,12 +53,12 @@ class AdministerController extends Controller
     {
 
         Administer::find($request->id)
-        ->update([
-            'name' => $request->m_family_name." ".$request->m_first_name,
-            'email' => $request->m_email,
-        ]);
+            ->update([
+                'name' => $request->m_family_name." ".$request->m_first_name,
+                'email' => $request->m_email,
+            ]);
         ShopAdmin::where('Administer_id',"=",$request->id)
-        ->update(['shop_id' => $request->shop_id]);
+            ->update(['shop_id' => $request->shop_id]);
 
         return redirect('/admin/admin_ope');
     }
@@ -65,7 +66,7 @@ class AdministerController extends Controller
     public function delete_manager(Request $request)
     {
         Administer::find($request->id)
-        ->delete();
+            ->delete();
         
         return redirect('/admin/admin_ope');
     }
@@ -75,12 +76,12 @@ class AdministerController extends Controller
             return view('admin.different_role');
         }else{
             $shop_id = Auth::guard('admin')->user()
-            ->shopAdmin()->first()->shop_id;
+                ->shopAdmin()->first()->shop_id;
             $shop = Shop::where('id','=',$shop_id)->first();
             $today =new Carbon('today');
             $reserves = Reserve::where('shop_id','=',$shop_id)
-            ->where('date_time','>=',$today->format('Y-m-d'))
-            ->orderby('date_time','asc')->get();
+                ->where('date_time','>=',$today->format('Y-m-d'))
+                ->orderby('date_time','asc')->get();
             $param = ['shop' => $shop, 'reserves' => $reserves];
             
             return view('admin.management',$param);
@@ -91,11 +92,11 @@ class AdministerController extends Controller
     public function img_up(Request $request)
     {
         $img = Storage::disk('s3')
-        ->putFile('/',$request->file('file'));
+            ->putFile('/',$request->file('file'));
         
         $image_URL =['image_URL' =>Storage::disk('s3')->url($img)];
         Shop::find($request->id)
-        ->update($image_URL);
+            ->update($image_URL);
         
         return redirect('/admin/management');
     }
@@ -105,7 +106,7 @@ class AdministerController extends Controller
         $update = $request->all();
         unset($update['_token']);
         Shop::find($request->id)
-        ->update($update);
+            ->update($update);
         
         return redirect('/admin/management');
     }
@@ -113,12 +114,12 @@ class AdministerController extends Controller
     public function update_reserve(ReserveRequest $request)
     {
         Reserve::find($request->id)
-        ->update([
-            'user_id' => $request->user_id,
-            'shop_id' =>$request->shop_id,
-            'number' =>$request->number,
-            'date_time' =>$request->date." ".$request->time
-        ]);
+            ->update([
+                'user_id' => $request->user_id,
+                'shop_id' =>$request->shop_id,
+                'number' =>$request->number,
+                'date_time' =>$request->date." ".$request->time
+            ]);
         
         return redirect('/admin/management');
     }
@@ -126,7 +127,7 @@ class AdministerController extends Controller
     public function delete_reserve(Request $request)
     {
         Reserve::find($request->id)
-        ->delete();
+            ->delete();
         
         return redirect('/admin/management');
     }

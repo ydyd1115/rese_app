@@ -15,10 +15,10 @@
             </td>
         </tr>
         @if ($errors->has('name'))
-        <tr class="error-message">
-            <th></th>
-            <td>{{$errors->first('name')}}</td>
-        </tr>
+            <tr class="error-message">
+                <th></th>
+                <td>{{$errors->first('name')}}</td>
+            </tr>
         @endif        
         <tr>
             <th>
@@ -29,10 +29,10 @@
             </td>
         </tr>
         @if ($errors->has('nickname'))
-        <tr class="error-message">
-            <th></th>
-            <td>{{$errors->first('nickname')}}</td>
-        </tr>
+            <tr class="error-message">
+                <th></th>
+                <td>{{$errors->first('nickname')}}</td>
+            </tr>
         @endif
         <tr>
             <th>
@@ -43,10 +43,10 @@
             </td>
         </tr>
         @if ($errors->has('email'))
-        <tr class="error-message">
-            <th></th>
-            <td>{{$errors->first('email')}}</td>
-        </tr>
+            <tr class="error-message">
+                <th></th>
+                <td>{{$errors->first('email')}}</td>
+            </tr>
         @endif
         <tr>
             <th>
@@ -60,10 +60,10 @@
             </td>
         </tr>
         @if ($errors->has('password'))
-        <tr class="error-message">
-            <th></th>
-            <td>{{$errors->first('password')}}</td>
-        </tr>
+            <tr class="error-message">
+                <th></th>
+                <td>{{$errors->first('password')}}</td>
+            </tr>
         @endif        
     </table>
     <div class="submit">

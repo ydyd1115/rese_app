@@ -136,7 +136,7 @@ p {
   background-color: #88c;
   border-radius: 8px;
   padding:16px 8px;
-  margin-bottom:16px;
+  margin:16px auto;
 }
 
 .shop_reserve__confirm th{

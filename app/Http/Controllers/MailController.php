@@ -33,15 +33,5 @@ class MailController extends Controller
         
         return redirect('/admin/management');
     }
-    
-    public function remind_mail()
-    {
-        $today =new Carbon('today');
-        $tomorrow = new Carbon('tomorrow');
-        
-        $reserves = Reserve::where('date_time','>=',$today->format('Y-m-d'))
-        ->where('date_time','<',$tomorrow->format('Y-m-d'))->get();    
 
-        return view('mail.remind_mail_test',['reserves'=>$reserves]);
-    }
 }
