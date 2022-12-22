@@ -15,9 +15,9 @@
       <div class="header__menu">
         <button class="header__menu__btn" id="drawer_on">
           @if(Auth::check())
-          {{$user['nickname']}}様
+            {{$user['nickname']}}様
           @else
-          ログイン
+            ログイン
           @endif
         </button>
       </div>

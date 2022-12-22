@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
+        
         return view('auth.thanks');
     }
 

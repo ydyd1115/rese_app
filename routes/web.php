@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 
 Route::get('/',[ShopController::class,'index']);
 
+
 Route::post('/search',[ShopController::class,'search'])
         ->name('search');
         
@@ -32,21 +33,23 @@ Route::post('/like/{id}',[ShopController::class,'like'])
 Route::post('/dis_like/{id}',[ShopController::class,'dis_like'])
         ->name('dislike');
         
-Route::post('/reserve',[ShopController::class,'reserve'])
-        ->middleware(['auth'])->name('reserve');
-        
-Route::post('/update/{id}',[ShopController::class,'update'])
-        ->name('update');
-        
-Route::post('/delete/{id}',[ShopController::class,'delete'])
-        ->name('delete');
-        
-Route::post('/review',[ShopController::class,'review'])
-        ->name('review');
-        
-Route::get('/mypage',[Usercontroller::class,'mypage'])
-        ->middleware(['auth'])->name('mypage');        
-        
+Route::middleware('verified')->group(function(){
+                Route::post('/reserve',[ShopController::class,'reserve'])
+                ->name('reserve');
+                
+        Route::post('/update/{id}',[ShopController::class,'update'])
+                ->name('update');
+                
+        Route::post('/delete/{id}',[ShopController::class,'delete'])
+                ->name('delete');
+                
+        Route::post('/review',[ShopController::class,'review'])
+                ->name('review');
+                
+        Route::get('/mypage',[Usercontroller::class,'mypage'])
+                ->name('mypage');        
+});
+
 require __DIR__.'/auth.php';
 
 Route::prefix('admin')->name('admin.')->group(function(){

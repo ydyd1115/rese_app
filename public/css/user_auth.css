@@ -93,3 +93,13 @@ body {
   background-color: #88f;
   margin-top:16px;
 }
+
+.caution{
+  display:block;
+  color:#909090;
+  font-size: 10px;
+  text-align: left;
+  width:60%;
+  margin:0 0 0 auto;
+  margin-right:0px;
+}
