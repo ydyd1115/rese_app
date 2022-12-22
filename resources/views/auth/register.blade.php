@@ -72,6 +72,11 @@
         </a>
         <button class="submit__btn" type="submit" >登録</button>
     </div>
+    <div class="caution">
+        <p>全ての会員機能をご利用いただくには<br>
+        登録時に送信されるメールより<br>
+        メール認証をしていただく必要がございます。</p>
+    </div>
 </form>
 
 @endsection

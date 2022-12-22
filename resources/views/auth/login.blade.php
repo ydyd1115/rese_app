@@ -46,5 +46,8 @@
     <div class="flex items-center justify-end mt-4">
         <button class="submit__btn" type="submit">ログイン</button>
     </div>
+    <div>
+        <a href="{{route('register')}}">会員登録はこちらから</a>
+    </div>
 </form>
 @endsection

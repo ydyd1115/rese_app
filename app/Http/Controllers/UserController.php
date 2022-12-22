@@ -19,6 +19,7 @@ class UserController extends Controller
             ->orderby('date_time','asc')->get();
         $shops = User::find($user->id)->shops()->get();
         $param = ['user'=>$user,'reserves'=>$reserves,'shops'=>$shops];
+        
         return view('mypage',$param);
     }
 }
