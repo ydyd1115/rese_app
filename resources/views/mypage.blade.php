@@ -68,7 +68,7 @@
                   <tr>
                     <th class="reserve__content__head">Time</th>
                     <td class="reserve__content__info">
-                    <input id="time" type="time" name="time"
+                    <input type="time" name="time"
                     min="00:00" max="23:59" 
                     value="{{\Carbon\Carbon::parse($reserve->date_time)->toTimeString()}}">
                     </td>
@@ -76,7 +76,7 @@
                   <tr>
                     <th class="reserve__content__head">Number</th>
                     <td class="reserve__content__info">
-                      <input id="number" type="number" name="number" value="{{$reserve->number}}">
+                      <input type="number" name="number" value="{{$reserve->number}}">
                     </td>
                   </tr>
                 </table>
