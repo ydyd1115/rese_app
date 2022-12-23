@@ -182,12 +182,13 @@ main{
 .reserve__content th{
   font-size:1.0vmax;
 }  
+
 .reserve__content__info input{
   width:80%;
   font-size:1.1vmax;
   font-weight:600;
   padding-left:5%;
-}  
+}
 
 
 /* reserves_list-end */
@@ -351,6 +352,18 @@ main{
   
   .reserve__content__info {
     font-size: 24px;
+  }
+
+  .input_date input{
+    width:80%;
+  }
+
+  .input_time input{
+    width: 50%;
+  }
+
+  .input_number input{
+    width: 25%;
   }
 
   .reserve_del_btn {
