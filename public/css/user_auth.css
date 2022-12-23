@@ -7,21 +7,22 @@ body {
 
 .container{
   width:40%;
-  min-width:480px;
+  min-width:420px;
+  min-height:300px;
   margin:20vh auto;
-  text-align: center;
-  border-radius: 8px;
+  text-align:center;
+  border-radius:8px;
   box-shadow:1px 1px 6px 1px #a0a0a0;
   padding-bottom:40px;
 }
 
 .container__head{
-  border-radius: 8px 8px 0 0;
-  font-size: 24px;
+  border-radius:8px 8px 0 0;
+  font-size:24px;
   height:40px;
   color:white;
-  background-color: #44c;
-  padding-top:16px;
+  background-color:#44c;
+  padding-top: 16px;
 }
 
 .container__body{

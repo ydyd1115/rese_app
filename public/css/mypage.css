@@ -291,7 +291,14 @@ main{
     margin:0 auto;
   }
 
+  .header__nav_menu {
+    left: -50%;
+    width: 50%;
+  }
 
+  .in {
+    transform: translateX(100%);
+  }
   
   .reserves_list {
     width: 80%;

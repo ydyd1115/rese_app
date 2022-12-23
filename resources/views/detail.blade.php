@@ -88,7 +88,7 @@
       @if(Auth::check())
         <button class="shop_review__post" id="modalOpen" >レビューを書く</button>
       @else
-        <a class="shop_review__post" href="{{route('login')}}">レビューを書く(ログイン)</a>
+        <a class="shop_review__post" href="{{route('login')}}">レビューを書く<br>(ログイン)</a>
       @endif
     </div>
     @if(Auth::check())
