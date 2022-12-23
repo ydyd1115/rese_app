@@ -2,10 +2,9 @@
 new Vue({
     el: '#reserve_form',
   data: {
-
-      time: '時間を選択してください',
-      number:'人数を選択してください',
-      date:'日付を選択してください',
+      date:'ご来店日',
+      time: 'ご来店時間',
+      number:'ご来店人数',
   },
 });
 

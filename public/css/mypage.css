@@ -38,12 +38,12 @@ p{
 }
 
 .header__nav__btn{
-    font-size: 20px;
-    font-weight: 600;
-    color: #a0a0a0;
-    border: none;
-    margin-top: 16px;
-    background-color: rgba(0, 0, 0, 0);
+  font-size: 20px;
+  font-weight: 600;
+  color: #a0a0a0;
+  border: none;
+  margin-top: 16px;
+  background-color: rgba(0, 0, 0, 0);
   
 }
 
@@ -123,9 +123,7 @@ main{
 }
 
 .reserve__head{
-  /* display:flex;
-  justify-content: space-around;
-  align-content: center; */
+
   margin-left:3%;
 }
 
@@ -279,8 +277,8 @@ main{
   align-content: middle;
   border-radius: 8px;
   height:32px;
-  padding:4px 8px 4px 8px;
-  font-size: 1.1vmax;
+  padding: 8px 8px 0px 8px;
+  font-size: 14px;
   background-color: #44c;
   box-shadow: 1px 1px 6px 1px #a0a0a0;
   align-items: bottom;
@@ -311,14 +309,14 @@ main{
 
   
   .reserves_list {
-      width: 80%;
-      margin:0 auto;
-    }
-    
-    .likes_list {
-      width: 80%;
-      margin:0 auto;
-    }
+    width: 80%;
+    margin:0 auto;
+  }
+  
+  .likes_list {
+    width: 80%;
+    margin:0 auto;
+  }
 
   .likes__shops {
     display: block;
@@ -351,13 +349,14 @@ main{
     font-size: 16px;
   }
 
-    .logo {
-      font-size: 32px;
-    }
+  .logo {
+    font-size: 32px;
+  }
 
-    .reserve__content__info {
-      font-size: 24px;
-    }
+  .reserve__content__info {
+    font-size: 24px;
+  }
+
   .reserve_del_btn {
     font-size: 18px;
   }
@@ -365,22 +364,23 @@ main{
   .reserve_update_btn {
     font-size: 18px;
   }
-    .reserve__content th {
-      font-size: 18px;
-    }
 
-    .reserve__content__info input {
-      font-size: 18px;
-      width:80%;
-    }
+  .reserve__content th {
+    font-size: 18px;
+  }
 
-    .shop_card__bottom a {
-      font-size: 20px;
-      margin-bottom:8px;
-    }
+  .reserve__content__info input {
+    font-size: 18px;
+    width:80%;
+  }
 
-    .shop_card__like__btn {
-      font-size: 32px;
-    }
+  .shop_card__bottom a {
+    font-size: 20px;
+    margin-bottom:8px;
+  }
+
+  .shop_card__like__btn {
+    font-size: 32px;
+  }
 
 }
