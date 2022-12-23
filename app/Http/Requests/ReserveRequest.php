@@ -26,7 +26,7 @@ class ReserveRequest extends FormRequest
         return [
             'date' => 'required|date|after_or_equal:tomorrow',
             'time' => 'required',
-            'number' => 'required|max:30',
+            'number' => 'required|integer|between:1,30',
         ];
     }
 
@@ -38,7 +38,7 @@ class ReserveRequest extends FormRequest
             'date.after_or_equal' => '明日以降の日付を入力してください',
             'time.required' => '時間を入力してください',
             'number.required' => '人数を入力してください',
-            'number.max' => '人数は30人以下で入力してください',
+            'number.between' => '人数は1~30人で入力してください',
         ];
     }
 }

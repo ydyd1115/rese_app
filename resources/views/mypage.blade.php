@@ -36,6 +36,16 @@
   <main>
     <div class="reserves_list">
       <h2>予約状況</h2>
+      @if(count($errors)>0)
+        <div class="error_message">
+          <p>入力に問題がありました。
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       @foreach($reserves as $reserve)
         <div class="reserve">
           <div class="reserve__head">
@@ -81,18 +91,6 @@
                   </tr>
                 </table>
               </form>
-            </div>
-            <div class="reserve__check">
-              @if(count($errors)>0)
-                <div class="error_message">
-                  <p>入力に問題がありました。
-                  <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                    @endforeach
-                  </ul>
-                </div>
-              @endif
             </div>
           </div>
         </div>

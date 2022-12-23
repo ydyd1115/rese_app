@@ -81,36 +81,45 @@ p{
   border-radius: 2px;
   width: 18px;
   margin: 4px 8px 0 auto;
-}
+}  
 
 .header__nav_menu__link {
   margin:30px auto 30px ;
   width: 50%;
-}
+}  
 
 .in {
   transform: translateY(100vh);
-}
+}  
 
 /* header-end */
 
 /* main*/
 
 /* reserves_list */
-
 main{
   width:95%;
   display:flex;
   justify-content: space-around;
+}  
+
+
+.error_message{
+  width:100%;
+  align-content: center;
+  display:inline-block;
+  margin-left:5%;
+  color: #f00;
 }
+
 
 .reserves_list{
   width:45%;
-}
+}  
 
 .reserves_list h2 {
   margin:24px 0  0 4px;
-}
+}  
 
 .reserve{
   color:white;
@@ -119,12 +128,12 @@ main{
   border-radius:8px;
   margin:8px 0px 16px 0px;
 
-}
+}  
 
 .reserve__head{
 
   margin-left:3%;
-}
+}  
 
 .reserve_del_btn{
   font-size: 1vmax;
@@ -135,23 +144,23 @@ main{
   border:solid 1px #888;
   border-radius: 4px;
   width:100px;
-}
+}  
 
 .reserve_update_btn{
   font-size: 1vmax;
   color:white;
   background-color:#ba0;
   padding: 4px 0;
-  margin: 8px 4px 8px 10%;
+  margin: 8px 4px 8px 5%;
   border: solid 1px #888;
   border-radius: 4px;
   width:100px;
-}
+}  
 
 .reserve__update{
   display: flex;
   justify-content: space-between;
-}
+}  
 
 .reserve__content{
   width:100%;
@@ -159,38 +168,27 @@ main{
   padding-bottom:16px;
   display: flex;
   flex-direction: column;
-}
+}  
 
 .reserve__content__head{
   width:30%;
-}
+}  
 .reserve__content__info{
   width:65%;
   font-size:1.2vmax;
   padding-left:5%;
-}
+}  
 
 .reserve__content th{
   font-size:1.0vmax;
-}
+}  
 .reserve__content__info input{
   width:80%;
   font-size:1.1vmax;
   font-weight:600;
   padding-left:5%;
-}
+}  
 
-.reserve__check{
-  width:100%;
-  align-content: center;
-}
-
-.error_message{
-  display:inline-block;
-  margin:15% 0 0 5%;
-  color: #ca0;
-  font-size:1.1vmax;
-}
 
 /* reserves_list-end */
 
