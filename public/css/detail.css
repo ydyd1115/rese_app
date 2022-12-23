@@ -348,19 +348,21 @@ input,
     margin: 0 auto;
     width: 90%;
   }
-
+  
   .shop_info,
   .shop_reserve {
     width: 100%;
     margin-top:24px;
   }
-
+  
+  .shop_reserve__before_login p {
+    font-size: 6vmin;
+    font-weight: 600;
+  }
   .shop_review__list{
     font-size: 2vmin;
-  }
-
-
-
+  } 
+  
   .shop_review__modal__inner{
     width:100%;
   }

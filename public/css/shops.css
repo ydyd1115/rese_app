@@ -206,8 +206,8 @@ input {
     width:50%;
   }
 
-.in {
-  transform: translateX(100%);
+  .in {
+    transform: translateX(100%);
   }
 
   .header__search{
