@@ -161,8 +161,8 @@ input {
   align-content: middle;
   border-radius: 8px;
   height: 32px;
-  padding: 4px 8px 4px 8px;
-  font-size: 1.1vmax;
+  padding: 8px 8px 0px 8px;
+  font-size: 14px;
   background-color: #44c;
   box-shadow: 1px 1px 6px 1px #a0a0a0;
   align-items: bottom;

@@ -460,6 +460,8 @@ section {
 .send_mail__modal__content textarea {
   border: none;
   outline: none;
+  padding: 16px 0 4px 0;
+  
 }
 
 #msg {
