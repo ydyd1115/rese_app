@@ -7,8 +7,8 @@ body {
 
 .container {
   width: 40%;
-  min-width: 420px;
-    min-height: 300px;
+  min-width: 360px;
+  min-height: 300px;
   margin: 20vh auto;
   text-align: center;
   border-radius: 8px;
@@ -37,81 +37,82 @@ body {
     justify-content: space-between;
   }
 
-  a {
-    display: block;
-    text-decoration: none;
-  }
+a {
+  display: block;
+  text-decoration: none;
+}
 
-  .roles {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-  }
+.roles {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 
-  .role_btn {
-    margin: 16px auto;
-  }
+.role_btn {
+  margin: 16px auto;
+}
 
-  table {
-    width: 90%;
-    margin: auto auto;
-  }
+table {
+  width: 90%;
+  margin: auto auto;
+}
 
-  table tr {
-    height: 40px;
-    width: 100%;
-    border-bottom: solid 1px #cacaca;
-  }
+table tr {
+  height: 40px;
+  width: 100%;
+  border-bottom: solid 1px #cacaca;
+}
 
 
-  table th {
-    font-size: 14px;
-    width: 30%;
-    vertical-align: bottom;
-  }
+table th {
+  font-size: 14px;
+  width: 30%;
+  vertical-align: bottom;
+}
 
-  table td {
-    width: 65%;
-    vertical-align: bottom;
-  }
+table td {
+  width: 65%;
+  vertical-align: bottom;
+}
 
-  table input {
-    border: none;
-    outline: none;
-  }
+table input {
+  border: none;
+  outline: none;
+}
 
-  .container__body table .error-message {
-    color: red;
-    border: none;
-    height: 40px
-  }
+.container__body table .error-message {
+  color: red;
+  border: none;
+  height: 40px
+}
 
-  .buttons {
-    margin-top: 16px;
-  }
+.buttons {
+  margin-top: 16px;
+}
 
-  .login_btn {
-    display: none;
-    font-size: 40px;
-    margin: 0 auto;
-    font-size: 12px;
-    color: white;
-    background-color: #00f;
-    border: none;
-    border-radius: 4px;
-    padding: 8px;
-  }
+.login_btn {
+  display: none;
+  font-size: 40px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: white;
+  background-color: #00f;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+}
 
-  .login_btn.show {
-    display: block;
-  }
+.login_btn.show {
+  display: block;
+}
 
-  .submit_btn {
-    font-size: 12px;
-    color: white;
-    background-color: #00f;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    margin-top:16px;
-  }
+.submit_btn {
+  font-size: 12px;
+  color: white;
+  background-color: #00f;
+  border: none;
+  font-size: 2vmin;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-top:16px;
+}
