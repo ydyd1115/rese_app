@@ -43,7 +43,7 @@
         @endif
       </div>
       <div class="header__search">
-        <form method="post" action="/search">
+        <form class="header__search__form" method="post" action="/search">
           @csrf
           <select name="area" value="{{old('area')}}">
             <option value="">#all_area</option>

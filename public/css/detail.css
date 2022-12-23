@@ -3,7 +3,6 @@ body {
     "Yu Gothic Medium", "游ゴシック Medium", sans-serif;
   line-height: 1.6;
   background-color: #fcfcfc;
-    min-width: 650px;
 }
 
 h2 {
@@ -238,38 +237,21 @@ p {
 
 .shop_review__date{
   width:15%;
-  min-width:100px;
 }
 
 .shop_review__nickname{
   width:15%;
-  min-width:110px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.shop_review__nickname:hover {
-  white-space: normal;
-  overflow: wrap;
-  word-break: break-all;
-}
 
 .shop_review__grade{
   width:5%;
-  min-width:60px;
 }
 
 .shop_review__comment{
   max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.shop_review__comment:hover {
-  white-space: normal;
-  overflow:wrap;
-  word-break: break-all;
-}
 
 .shop_review__t_body{
   border-bottom:solid 1px #a0a0a0;
@@ -372,6 +354,12 @@ input,
     width: 100%;
     margin-top:24px;
   }
+
+  .shop_review__list{
+    font-size: 2vmin;
+  }
+
+
 
   .shop_review__modal__inner{
     width:100%;
